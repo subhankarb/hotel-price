@@ -44,7 +44,7 @@ There are 2 tables in the db. One for api key and one for hotel data.
 This end point returns back api key with rate we mention
 rate: [request rate /second][optional] if not present global level 10req/sec will be used
    
-```
+```json
 {
      "message": {
        "key": "079bfad0-2f0e-4a6d-82be-ff616c4451ab",
@@ -66,7 +66,7 @@ Header:
 ApiKey: [Mandatory] use the key got back from /apikey
  
 
-```
+```json
 {
   "result": [
     {
