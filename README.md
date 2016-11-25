@@ -15,14 +15,16 @@ You need to create a InMemory Implementation for RateLimit.
 
 
 
-## RateLimit:
-Each ApiKey class keep track of: what time it last used ans allowance
-Allowance is the limit of request it would handel in unit sec. 
+## Rate Limiter:
+Each ApiKey class keep track of: 
+- What time it last used 
+- Allowance. Allowance is the limit of request it would handel in unit sec. 
+
 The logic behind the rate limiter is
 ``` scala
 allowance = allowance + timePassed * (rate / 1.0)
 if (allowance > rate) allowance = rate
-if (allowance < 1)flase
+if (allowance < 1)false
 else 
     allowance = allowance - 1.0 
     true
@@ -42,7 +44,9 @@ There are 2 tables in the db. One for api key and one for hotel data.
 ### /apikey?rate=4
     
 This end point returns back api key with rate we mention
-rate: [request rate /second][optional] if not present global level 10req/sec will be used
+
+Query Params::
+- rate: [request rate /second][optional] if not present global level 10req/sec will be used
    
 ```json
 {
@@ -57,10 +61,10 @@ rate: [request rate /second][optional] if not present global level 10req/sec wil
 
 This end point return back the list of hotels.
 Query Params:
-city [required]
-sort [ASC/DESC] [optional] if not mentioned data returned back as ASC
-page [optional] if not mentioned page number 1 returned
-size [optional] if not mentioned page size is default 10
+- city [required]
+- sort [ASC/DESC] [optional] if not mentioned data returned back as ASC
+- page [optional] if not mentioned page number 1 returned
+- size [optional] if not mentioned page size is default 10
 
 Header:
 ApiKey: [Mandatory] use the key got back from /apikey
