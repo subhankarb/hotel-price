@@ -16,6 +16,6 @@ doc in Compile <<= target.map(_ / "none")
 scalariformSettings
 
 libraryDependencies ++= Seq(
-	specs2 % Test,
-	"org.specs2" %% "specs2-matcher-extra" % "3.8.5" % Test
+	"org.scalatestplus.play" % "scalatestplus-play_2.11" % "1.5.1" % Test,
+	"org.mockito" % "mockito-core" % "2.2.22" % Test
 )

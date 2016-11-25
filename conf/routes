@@ -4,4 +4,6 @@
 #
 ## WELCOME PAGE
 
-GET              /                                  controllers.Welcome.welcome
+GET             /             controllers.ApplicationController.welcome
+GET             /hotels       controllers.ApplicationController.getHotelPriceByCity(city: Option[String], sort: Option[String], page: Option[Int], size: Option[Int])
+GET             /apikey       controllers.ApplicationController.getApiKey(rate: Option[Int])
